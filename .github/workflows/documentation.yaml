@@ -14,6 +14,7 @@ jobs:
       - name: Sphinx build
         run: |
           sphinx-build doc _build
+          mkdir gh-pages
           cd gh-pages
           git clone https://github.com/brendanc490/doc_example.git
       - name: Deploy
@@ -23,4 +24,5 @@ jobs:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: _build/
+          destination_dir: Custom/docs
           force_orphan: true
