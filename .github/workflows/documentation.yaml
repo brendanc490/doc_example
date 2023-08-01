@@ -21,8 +21,9 @@ jobs:
     - name: Commit documentation changes
       run: |
         git clone https://github.com/brendanc490/doc_example.git --branch gh-pages --single-branch gh-pages
-        cp -r doc/_build/html/* gh-pages
-        cp -r source gh-pages
+        mkdir gh-pages/doc
+        cp -r doc/_build/html/* gh-pages/doc
+        cp -r source/* gh-pages
         cd gh-pages
         touch .nojekyll
         git config --local user.email "action@github.com"
